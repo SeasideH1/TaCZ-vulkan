@@ -1,5 +1,7 @@
 # TaCZ-vulkan
 
+## ⚠ AI大分警告！⚠ 除了这段话全是AI写的，纯AI无人工，全程GPT和它的降智模型，搞出来图一乐。
+
 基于 [Timeless and Classics Guns Zero (TACZ)](https://github.com/MCModderAnchor/TACZ) 的**非官方、实验性 Fabric 移植**，面向 Minecraft `26.4-snapshot-3` 的原生渲染接口与 Vulkan 后端。与上游项目、Mojang、Microsoft 无隶属或背书关系。
 
 当前源码包含 candidate18 的枪口火焰、枪包数据兼容和高模渲染优化改动。**尚非稳定版，不承诺所有枪包可用，也没有实测帧率提升结论。** 请向[本仓库 Issues](https://github.com/SeasideH1/TaCZ-vulkan/issues)反馈移植问题。
