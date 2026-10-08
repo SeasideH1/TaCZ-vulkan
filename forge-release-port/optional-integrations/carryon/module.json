@@ -1,0 +1,14 @@
+{
+  "id": "carryon",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/carryon/src/main/java",
+  "resource_root": "optional-integrations/carryon/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/carryon/BlackList.java",
+      "preserved_path": "optional-integrations/carryon/src/main/java/com/tacz/guns/compat/carryon/BlackList.java",
+      "sha256_at_split": "8ca2ee20c2abe2c95eda83da46fa5cb541fa1a1b31f9a919a629d2ed6a7ddefc"
+    }
+  ]
+}

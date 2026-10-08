@@ -1,0 +1,6 @@
+# Preserve upstream asset and license bytes, including their original line endings.
+* -text
+*.png binary
+*.ogg binary
+*.jar binary
+*.zip binary

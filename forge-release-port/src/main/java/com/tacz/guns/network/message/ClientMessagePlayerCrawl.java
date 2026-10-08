@@ -1,0 +1,46 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.network.message;
+
+import com.tacz.guns.api.entity.IGunOperator;
+import com.tacz.guns.config.sync.SyncConfig;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import com.tacz.guns.network.NetworkContext;
+
+import java.util.function.Supplier;
+
+public class ClientMessagePlayerCrawl {
+    private final boolean isCrawl;
+
+    public ClientMessagePlayerCrawl(boolean isCrawl) {
+        this.isCrawl = isCrawl;
+    }
+
+    public static void encode(ClientMessagePlayerCrawl message, FriendlyByteBuf buf) {
+        buf.writeBoolean(message.isCrawl);
+    }
+
+    public static ClientMessagePlayerCrawl decode(FriendlyByteBuf buf) {
+        return new ClientMessagePlayerCrawl(buf.readBoolean());
+    }
+
+    public static void handle(ClientMessagePlayerCrawl message, Supplier<NetworkContext> contextSupplier) {
+        NetworkContext context = contextSupplier.get();
+        if (context.isServer()) {
+            context.enqueueWork(() -> {
+                ServerPlayer entity = context.getSender();
+                if (entity == null) {
+                    return;
+                }
+                if (!SyncConfig.ENABLE_CRAWL.get()) {
+                    return;
+                }
+                IGunOperator.fromLivingEntity(entity).crawl(message.isCrawl);
+            });
+        }
+    }
+}

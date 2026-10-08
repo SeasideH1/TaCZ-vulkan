@@ -1,0 +1,104 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.client.gui.overlay;
+
+import com.tacz.guns.api.item.IAmmo;
+import com.tacz.guns.api.item.IAttachment;
+import com.tacz.guns.api.item.IGun;
+import com.tacz.guns.block.AbstractGunSmithTableBlock;
+import com.tacz.guns.client.input.InteractKey;
+import com.tacz.guns.config.client.RenderConfig;
+import com.tacz.guns.config.util.InteractKeyConfigRead;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.client.DeltaTracker;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
+import org.apache.commons.lang3.StringUtils;
+
+public class InteractKeyTextOverlay implements HudElement {
+
+    @Override
+    public void extractRenderState(GuiGraphicsExtractor graphics, DeltaTracker delta) {
+        int width=graphics.guiWidth(), height=graphics.guiHeight();
+        float partialTick=delta.getGameTimeDeltaPartialTick(false);
+        if(Minecraft.getInstance().gui.hud.isHidden()) return;
+        if (RenderConfig.DISABLE_INTERACT_HUD_TEXT.get()) {
+            return;
+        }
+        Minecraft mc = Minecraft.getInstance();
+        LocalPlayer player = mc.player;
+        if (player == null || player.isSpectator()) {
+            return;
+        }
+        HitResult hitResult = mc.hitResult;
+        if (hitResult == null) {
+            return;
+        }
+        if (hitResult instanceof BlockHitResult blockHitResult) {
+            renderBlockText(graphics, width, height, blockHitResult, player, mc);
+            return;
+        }
+        if (hitResult instanceof EntityHitResult entityHitResult) {
+            renderEntityText(graphics, width, height, entityHitResult, mc);
+        }
+    }
+
+    private static void renderBlockText(GuiGraphicsExtractor graphics, int width, int height, BlockHitResult blockHitResult, LocalPlayer player, Minecraft mc) {
+        BlockPos blockPos = blockHitResult.getBlockPos();
+        BlockState block = player.level().getBlockState(blockPos);
+        if (InteractKeyConfigRead.canInteractBlock(block)) {
+            boolean mainHandHoldGun = IGun.mainHandHoldGun(player);
+            boolean hasGunSmithTableFilterItem = hasGunSmithTableFilterItem(block, player);
+            boolean willFilterByHand = RenderConfig.AUTO_SELECT_GUN_SMITH_TABLE_FILTER.get() && hasGunSmithTableFilterItem;
+            if (mainHandHoldGun) {
+                renderText(graphics, width, height, mc.font, InteractKey.INTERACT_KEY.getTranslatedKeyMessage().getString(), willFilterByHand);
+            } else if (hasGunSmithTableFilterItem) {
+                renderText(graphics, width, height, mc.font, mc.options.keyUse.getTranslatedKeyMessage().getString(), willFilterByHand);
+            }
+        }
+    }
+
+    private static void renderEntityText(GuiGraphicsExtractor graphics, int width, int height, EntityHitResult entityHitResult, Minecraft mc) {
+        if (mc.player == null || !IGun.mainHandHoldGun(mc.player)) {
+            return;
+        }
+        Entity entity = entityHitResult.getEntity();
+        if (InteractKeyConfigRead.canInteractEntity(entity)) {
+            renderText(graphics, width, height, mc.font, InteractKey.INTERACT_KEY.getTranslatedKeyMessage().getString(), false);
+        }
+    }
+
+    private static boolean hasGunSmithTableFilterItem(BlockState block, LocalPlayer player) {
+        if (!(block.getBlock() instanceof AbstractGunSmithTableBlock)) {
+            return false;
+        }
+        ItemStack stack = player.getMainHandItem();
+        Item item = stack.getItem();
+        return item instanceof IGun || item instanceof IAttachment || item instanceof IAmmo;
+    }
+
+    private static void renderText(GuiGraphicsExtractor graphics, int width, int height, Font font, String keyName, boolean willFilterByHand) {
+        Component title = Component.translatable("gui.tacz.interact_key.text.desc", StringUtils.capitalize(keyName));
+        NativeHudDrawing.text(graphics, font, title, (int) ((width - font.width(title)) / 2.0f), (int) (height / 2.0f - 25), (0xFF000000 | net.minecraft.network.chat.TextColor.YELLOW.getValue()), false);
+        if (willFilterByHand) {
+            Component filter = Component.translatable("gui.tacz.interact_key.text.gun_smith_table_filter");
+            NativeHudDrawing.text(graphics, font, filter, (int) ((width - font.width(filter)) / 2.0f), (int) (height / 2.0f - 14), (0xFF000000 | net.minecraft.network.chat.TextColor.GRAY.getValue()), false);
+        }
+    }
+}

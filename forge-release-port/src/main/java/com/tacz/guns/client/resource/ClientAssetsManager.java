@@ -1,0 +1,205 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.client.resource;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.tacz.guns.GunMod;
+import com.tacz.guns.api.client.animation.gltf.AnimationStructure;
+import com.tacz.guns.api.vmlib.LuaAnimationConstant;
+import com.tacz.guns.api.vmlib.LuaGunAnimationConstant;
+import com.tacz.guns.api.vmlib.LuaLibrary;
+import com.tacz.guns.client.resource.manager.DisplayManager;
+import com.tacz.guns.client.resource.manager.GltfManager;
+import com.tacz.guns.client.resource.manager.PackInfoManager;
+import com.tacz.guns.client.resource.pojo.CommonTransformObject;
+import com.tacz.guns.client.resource.pojo.PackInfo;
+import com.tacz.guns.client.resource.pojo.animation.bedrock.AnimationKeyframes;
+import com.tacz.guns.client.resource.pojo.animation.bedrock.BedrockAnimationFile;
+import com.tacz.guns.client.resource.pojo.animation.bedrock.SoundEffectKeyframes;
+import com.tacz.guns.client.resource.pojo.display.ammo.AmmoDisplay;
+import com.tacz.guns.client.resource.pojo.display.attachment.AttachmentDisplay;
+import com.tacz.guns.client.resource.pojo.display.block.BlockDisplay;
+import com.tacz.guns.client.resource.pojo.display.gun.GunDisplay;
+import com.tacz.guns.client.resource.pojo.model.BedrockModelPOJO;
+import com.tacz.guns.client.resource.pojo.model.CubesItem;
+import com.tacz.guns.client.resource.serialize.AnimationKeyframesSerializer;
+import com.tacz.guns.client.resource.serialize.ItemStackSerializer;
+import com.tacz.guns.client.resource.serialize.SoundEffectKeyframesSerializer;
+import com.tacz.guns.client.resource.serialize.Vector3fSerializer;
+import com.tacz.guns.resource.CommonAssetsManager;
+import com.tacz.guns.resource.manager.LazyJsonDataManager;
+import com.tacz.guns.resource.manager.ScriptManager;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.cuboid.ItemTransform;
+import net.minecraft.client.resources.model.cuboid.ItemTransforms;
+import net.minecraft.resources.FileToIdConverter;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.packs.resources.PreparableReloadListener;
+import net.minecraft.world.item.ItemStack;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3f;
+import org.luaj.vm2.LuaTable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
+
+/**
+ * 客户端资源管理器<br/>
+ * 所有枪包资源缓存在此
+ */
+@Environment(EnvType.CLIENT)
+public enum ClientAssetsManager {
+    INSTANCE;
+    public static final Gson GSON = new GsonBuilder().registerTypeAdapter(Identifier.class, new com.tacz.guns.resource.serialize.IdentifierSerializer())
+            .registerTypeAdapter(CubesItem.class, new CubesItem.Deserializer())
+            .registerTypeAdapter(Vector3f.class, new Vector3fSerializer())
+            .registerTypeAdapter(CommonTransformObject.class, new CommonTransformObject.Serializer())
+            .registerTypeAdapter(ItemStack.class, new ItemStackSerializer())
+            .registerTypeAdapter(AnimationKeyframes.class, new AnimationKeyframesSerializer())
+            .registerTypeAdapter(SoundEffectKeyframes.class, new SoundEffectKeyframesSerializer())
+            .registerTypeAdapter(ItemTransforms.class, com.tacz.guns.client.resource.serialize.TransformSerializers.ITEMS)
+            .registerTypeAdapter(ItemTransform.class, com.tacz.guns.client.resource.serialize.TransformSerializers.ITEM)
+            .create();
+
+    // 枪械展示数据
+    private DisplayManager<GunDisplay> gunDisplay;
+    // 弹药展示数据
+    private DisplayManager<AmmoDisplay> ammoDisplay;
+    // 配件展示数据
+    private DisplayManager<AttachmentDisplay> attachmentDisplay;
+    // 方块展示数据
+    private DisplayManager<BlockDisplay> blockDisplay;
+    // 原始基岩版模型
+    private LazyJsonDataManager<BedrockModelPOJO> bedrockModel;
+    // 基岩版模型动画
+    private LazyJsonDataManager<BedrockAnimationFile> bedrockAnimation;
+    // gltf 动画
+    private GltfManager gltfAnimation;
+    // 客户端脚本
+    private final List<LuaLibrary> libList = List.of(new LuaAnimationConstant(), new LuaGunAnimationConstant());
+    private ScriptManager scriptManager;
+    // 音效
+    // 枪包元数据
+    private PackInfoManager packInfo;
+
+    private List<PreparableReloadListener> listeners;
+
+    public void reloadAndRegister(Consumer<PreparableReloadListener> register) {
+        if (listeners == null) {
+            listeners = new ArrayList<>();
+            register((shared, prepareExecutor, barrier, applyExecutor) -> barrier.wait((Void) null)
+                    .thenRunAsync(() -> com.tacz.guns.client.event.ReloadResourceEvent.reload(shared.resourceManager()), applyExecutor));
+            gunDisplay = register(new DisplayManager<>(GunDisplay.class, GSON, "display/guns", "GunDisplayLoader"));
+            ammoDisplay = register(new DisplayManager<>(AmmoDisplay.class, GSON, "display/ammo", "AmmoDisplayLoader"));
+            attachmentDisplay = register(new DisplayManager<>(AttachmentDisplay.class, GSON, "display/attachments", "AttachmentDisplayLoader"));
+            blockDisplay = register(new DisplayManager<>(BlockDisplay.class, GSON, "display/blocks", "BlockDisplayLoader"));
+
+            bedrockModel = register(new LazyJsonDataManager<>(BedrockModelPOJO.class, GSON, "geo_models", "BedrockModelLoader",
+                    id -> GunMod.MOD_ID.equals(id.getNamespace())));
+            bedrockAnimation = register(new LazyJsonDataManager<>(BedrockAnimationFile.class, GSON, new FileToIdConverter("animations", ".animation.json"),
+                    "BedrockAnimationLoader", id -> GunMod.MOD_ID.equals(id.getNamespace())));
+            gltfAnimation = register(new GltfManager());
+            scriptManager = register(new ScriptManager(new FileToIdConverter("scripts", ".lua"), libList));
+            packInfo = register(new PackInfoManager());
+            register((sharedState, backgroundExecutor, barrier, gameExecutor) ->
+                    barrier.wait((Void) null).thenRunAsync(ClientIndexManager::reload, gameExecutor));
+        }
+        listeners.forEach(register);
+    }
+
+    private <T extends PreparableReloadListener> T register(T listener) {
+        listeners.add(listener);
+        return listener;
+    }
+
+    @Nullable
+    public GunDisplay getGunDisplay(Identifier id) {
+        return gunDisplay.getData(id);
+    }
+
+    public Set<Map.Entry<Identifier, GunDisplay>> getGunDisplays() {
+        return gunDisplay.getAllData().entrySet();
+    }
+
+    public Set<Identifier> getGunDisplayIds() {
+        return gunDisplay.getAllData().keySet();
+    }
+
+    @Nullable
+    public AttachmentDisplay getAttachmentDisplay(Identifier id) {
+        return attachmentDisplay.getData(id);
+    }
+
+    @Nullable
+    public AmmoDisplay getAmmoDisplay(Identifier id) {
+        return ammoDisplay.getData(id);
+    }
+
+    @Nullable
+    public BlockDisplay getBlockDisplay(Identifier id) {
+        return blockDisplay.getData(id);
+    }
+
+    @Nullable
+    public BedrockModelPOJO getBedrockModelPOJO(Identifier id) {
+        return bedrockModel.getData(id);
+    }
+
+    @Nullable
+    public BedrockAnimationFile getBedrockAnimations(Identifier id) {
+        return bedrockAnimation.getData(id);
+    }
+
+    @Nullable
+    public LuaTable getScript(Identifier id) {
+        return scriptManager.getScript(id);
+    }
+
+    @Nullable
+    public AnimationStructure getGltfAnimation(Identifier id) {
+        return gltfAnimation.getGltfAnimation(id);
+    }
+
+    @Nullable
+    public PackInfo getPackInfo(String namespace) {
+        return packInfo.getData(namespace);
+    }
+
+    @Nullable
+    public PackInfo getPackInfo(@Nullable Identifier namespace) {
+        if (namespace == null) {
+            return null;
+        }
+        return packInfo.getData(namespace.getNamespace());
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static java.util.concurrent.CompletableFuture<Void> reloadAllPack() {
+        Minecraft minecraft = Minecraft.getInstance();
+        java.util.concurrent.CompletableFuture<Void> result = new java.util.concurrent.CompletableFuture<>();
+        minecraft.execute(() -> {
+            try {
+                minecraft.reloadResourcePacks().thenCompose(ignored ->
+                        minecraft.getSingleplayerServer() != null ? CommonAssetsManager.reloadAllPack()
+                                : java.util.concurrent.CompletableFuture.<Void>completedFuture(null))
+                        .whenComplete((ignored, error) -> {
+                            if (error == null) result.complete(null);
+                            else result.completeExceptionally(error);
+                        });
+            } catch (Exception error) {
+                result.completeExceptionally(error);
+            }
+        });
+        return result;
+    }
+
+}

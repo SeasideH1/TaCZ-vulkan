@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "approved_scope": "Original TACZ core and default gunpack; external integrations preserved as unsupported source modules.",
+  "upstream_baseline": {
+    "tag": "1.1.8-hotfix2",
+    "commit": "b482eff8c94a733ac8d0910193fca3893954027c"
+  },
+  "active_source_roots": [
+    "src/main/java"
+  ],
+  "core_features_retained": [
+    "default gunpack",
+    "native Vulkan renderer",
+    "gunplay and crafting",
+    "native settings UI",
+    "release fallback third-person poses",
+    "opt-in authored animation evaluator"
+  ],
+  "modules": [
+    {
+      "id": "ar",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/ar/src/main/java",
+      "resource_root": "optional-integrations/ar/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/ar/ARCompat.java",
+          "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/ARCompat.java",
+          "sha256_at_split": "c37aeb6cb6cf26865ad1543a94be3ebec890e79cd750a9ebb413c1cf3ebd75e2"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/ar/ARCompatImpl.java",
+          "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/ARCompatImpl.java",
+          "sha256_at_split": "b733d10406224e092c9f33f183053eab9e2d71ceaceee4e4187da10ac7df1c13"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/ar/AcceleratedBeamRenderer.java",
+          "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/AcceleratedBeamRenderer.java",
+          "sha256_at_split": "dadf1d54996bde1df23a312cba6080aed185bf5b79525326689fe8856ddfbf1c"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/ar/BeamRenderContext.java",
+          "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/BeamRenderContext.java",
+          "sha256_at_split": "b30d3d14c38cdf3fc949c91064dccf59945cf59e31b7941222f718f76b2dafa8"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/mixin/client/ar/ARCompatMixinPlugin.java",
+          "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/mixin/client/ar/ARCompatMixinPlugin.java",
+          "sha256_at_split": "f41cd418896170606bec17e5c9ab12592ba416f518eb20d8a36c4f7b63da8e72"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/mixin/client/ar/BedrockPartMixin.java",
+          "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/mixin/client/ar/BedrockPartMixin.java",
+          "sha256_at_split": "51a1a28d031deae98dd2ab68803041fd99eff1e119ccf435e4e0c52a5d701520"
+        },
+        {
+          "original_path": "src/main/resources/tacz.compat.acceleratedrendering.mixins.json",
+          "preserved_path": "optional-integrations/ar/src/main/resources/tacz.compat.acceleratedrendering.mixins.json",
+          "sha256_at_split": "aa9a449eeaf9d1789fb8f16c736ac1304677f84c89d75afd4af1465612aecaa6"
+        }
+      ]
+    },
+    {
+      "id": "carryon",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/carryon/src/main/java",
+      "resource_root": "optional-integrations/carryon/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/carryon/BlackList.java",
+          "preserved_path": "optional-integrations/carryon/src/main/java/com/tacz/guns/compat/carryon/BlackList.java",
+          "sha256_at_split": "8ca2ee20c2abe2c95eda83da46fa5cb541fa1a1b31f9a919a629d2ed6a7ddefc"
+        }
+      ]
+    },
+    {
+      "id": "cloth",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/cloth/src/main/java",
+      "resource_root": "optional-integrations/cloth/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/MenuIntegration.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/MenuIntegration.java",
+          "sha256_at_split": "aabefafed53a4242fbdbd33fc8a6f13a1fa0a6d73d70b4a5808bab015a90755f"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/KeyClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/KeyClothConfig.java",
+          "sha256_at_split": "31e6648c103fd4ca05ff02d55df7919e103e256acb7119329ca45996c15590d2"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/RenderClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/RenderClothConfig.java",
+          "sha256_at_split": "2d59e143fb2482fe364e86835e20c5c8d7f08b2ca3dcedccfa5626ca775ba839"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/ResourceClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/ResourceClothConfig.java",
+          "sha256_at_split": "1c1545438e5b3f66a4ec4f916d617ae0cd580b5fef376280052ef93355eaf361"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/SoundClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/SoundClothConfig.java",
+          "sha256_at_split": "23441e9bf993f4a87a0c60d21484ace09e2d66cf1cdf6dd2c3c0602c56502c24"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/ZoomClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/ZoomClothConfig.java",
+          "sha256_at_split": "54074cddf1be429b49aa4fc5f07e98de3c6a3d204f2b5615a088a04c67dd0ed3"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/common/AmmoClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/common/AmmoClothConfig.java",
+          "sha256_at_split": "7a357d127d62f73897ced76321d44a03fa7a9694b654e46b9e534b7ed04e4309"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/common/GunClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/common/GunClothConfig.java",
+          "sha256_at_split": "5f23f2fd848433c3f49f5806fe1410555b167db6352d551edb76df69415d96ff"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/common/OtherClothConfig.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/common/OtherClothConfig.java",
+          "sha256_at_split": "12c450b9b9a761534cb97159b2214f7e83dfb982be7afce95388e6489efbcf12"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/widget/CrosshairDropdown.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/widget/CrosshairDropdown.java",
+          "sha256_at_split": "6d7f5150fbe8b1806f3f4c2ec6b57be5838721ad344dbd5426d0685e65807b67"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/cloth/widget/OpenGunPackDirEntry.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/widget/OpenGunPackDirEntry.java",
+          "sha256_at_split": "1aaf6d6dfd3d8093801bf22e16ec02cd635fafbba39ac574d2f1767f0fe16bc4"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/client/gui/compat/ClothConfigScreen.java",
+          "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/client/gui/compat/ClothConfigScreen.java",
+          "sha256_at_split": "ad5b13a29a44ec5875ff722d72b737dfb947a2b12324a5d117695050bdf42668"
+        }
+      ]
+    },
+    {
+      "id": "controllable",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/controllable/src/main/java",
+      "resource_root": "optional-integrations/controllable/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/controllable/ControllableCompat.java",
+          "preserved_path": "optional-integrations/controllable/src/main/java/com/tacz/guns/compat/controllable/ControllableCompat.java",
+          "sha256_at_split": "4da48eefaead7c7956a0361ad1dab144377810f2d4599f2426b43e4338055813"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/controllable/ControllableInner.java",
+          "preserved_path": "optional-integrations/controllable/src/main/java/com/tacz/guns/compat/controllable/ControllableInner.java",
+          "sha256_at_split": "b41390dde80d70fe1a8975b1c852b2425b810c03eb1ac158f265d1345bb21024"
+        }
+      ]
+    },
+    {
+      "id": "jei",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/jei/src/main/java",
+      "resource_root": "optional-integrations/jei/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/jei/GunModPlugin.java",
+          "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/GunModPlugin.java",
+          "sha256_at_split": "8c545387fc90f4c1460816a939f106753b68376a003b1f7e9a47ed7d44d460d4"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/jei/GunModSubtype.java",
+          "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/GunModSubtype.java",
+          "sha256_at_split": "59d4e05aed9d56a65864052cf5a7cebc95e7f74d8524fce6db3b776483169a65"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/jei/category/AttachmentQueryCategory.java",
+          "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/category/AttachmentQueryCategory.java",
+          "sha256_at_split": "d91d46ab0ee3cf35c43ec790be096ae3f0cb88ed0c27edcd77937d7a55959176"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/jei/category/GunSmithTableCategory.java",
+          "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/category/GunSmithTableCategory.java",
+          "sha256_at_split": "33d8593e38a8dad8ad1b4208e813d3b9ad1027cbc9cda6c81e0642613a2b0a83"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/jei/category/package-info.java",
+          "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/category/package-info.java",
+          "sha256_at_split": "3f23f532ea03618b9cb6861fbfe8bd7311c6bc27b105b4e2868b7bc7a087cc22"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/jei/entry/AttachmentQueryEntry.java",
+          "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/entry/AttachmentQueryEntry.java",
+          "sha256_at_split": "72f20bba7a21e5c80b08a0b081844d9ae3031f780b49e62f76fb1701ccf59f64"
+        }
+      ]
+    },
+    {
+      "id": "kubejs",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/kubejs/src/main/java",
+      "resource_root": "optional-integrations/kubejs/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/TimelessKubeJSPlugin.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/TimelessKubeJSPlugin.java",
+          "sha256_at_split": "f9ddfc229f6d901936e40a83c64dcfa6e9665ebe25dfed966b64b9285f5f3e75"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/custom/CustomGunItemBuilder.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/custom/CustomGunItemBuilder.java",
+          "sha256_at_split": "7f4e748e934c7fd9d4f36b911be310c3b28e91d298d2ce65d2c06aec3e304085"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/custom/KubeJSCustomGunItem.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/custom/KubeJSCustomGunItem.java",
+          "sha256_at_split": "32d3b0953df110a14ce08022172d96f4fb07f131b52c6e2482b76e8634628495"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/GunKubeJSEvents.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/GunKubeJSEvents.java",
+          "sha256_at_split": "00b19d2e2af66d4ffb3c3ed696843825d8edf64695c4fb6a9ef404461584b8ee"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessClientEvents.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessClientEvents.java",
+          "sha256_at_split": "fc5f24ddf8fbfac90c57a6d47f1876a9d44cdd47fe0b975dcacb91ef9e6f42d7"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessCommonEvents.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessCommonEvents.java",
+          "sha256_at_split": "dc312c84db1b07f5bcaa35bcf75976030e08151ea2c0499b3b1c4321775153e5"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessForgeEventWrappers.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessForgeEventWrappers.java",
+          "sha256_at_split": "8f3d1a19c2047be8211d8a4eac537e2d5484eac7962f93d12c09b22ecb236589"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessKubeJSEventRegister.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessKubeJSEventRegister.java",
+          "sha256_at_split": "3a13b05b8603bdbc1a6e836eb1766b2afa2e94055fd987d6e5580fd0f0e1cba3"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessServerEvents.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessServerEvents.java",
+          "sha256_at_split": "44c297903183c659f7359f046292bc41ab260d1c508edf49e3c43710cbb3f7bb"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/recipe/GunSmithTableResultComponents.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/recipe/GunSmithTableResultComponents.java",
+          "sha256_at_split": "17b1681dbfaae945d409967a2582626adbd6fadb2468da92424b4f35184f8ae0"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessGunSmithTableRecipeSchema.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessGunSmithTableRecipeSchema.java",
+          "sha256_at_split": "f7e7a3ebd5ff9e36a2eaf2acd8b99c6cc33252330e443bcca3075d2c0b38ae59"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessRecipeJS.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessRecipeJS.java",
+          "sha256_at_split": "0cf44a0cfed3f6850940392c7c83d03a2609732c5c5f3044ebf764f4f22f3438"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/AmmoNbtFactory.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/AmmoNbtFactory.java",
+          "sha256_at_split": "c74b6044ebab9693962566425df8225f46686d81024adf59561120f77028cdc7"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/AttachmentNbtFactory.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/AttachmentNbtFactory.java",
+          "sha256_at_split": "11fd7b7cdbcec0e95942bdab4b0da154b192217d877d647a298dda7fe2b42fca"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/GunNbtFactory.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/GunNbtFactory.java",
+          "sha256_at_split": "b6ad9eb9248023f834054b2b584319febaf1b43be66d268cf1665329af4e4e0e"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/GunSmithTableResultInfo.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/GunSmithTableResultInfo.java",
+          "sha256_at_split": "578b6a9e9ac890cad85b21ac97dd12afe4e4f4c4e1c110ad2e5360ff156ecabe"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemNbtFactory.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemNbtFactory.java",
+          "sha256_at_split": "627c73fb1a6956e00f2176640fd5531d5a4f14091916fcb3d83f82cbb0e48f7b"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemType.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemType.java",
+          "sha256_at_split": "ffe3339668f9959509747372fd6db0622077b62cf8d67854b57658ddbef4cf62"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemWrapper.java",
+          "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemWrapper.java",
+          "sha256_at_split": "94b004819efd084f062898f05b54d07bd93279a2fe46004cc308f32fde232498"
+        },
+        {
+          "original_path": "src/main/resources/kubejs.classfilter.txt",
+          "preserved_path": "optional-integrations/kubejs/src/main/resources/kubejs.classfilter.txt",
+          "sha256_at_split": "1431e46ada4a7ba851979ce36dfa367aa5fc858b36672888ea8783707eced11c"
+        },
+        {
+          "original_path": "src/main/resources/kubejs.plugins.txt",
+          "preserved_path": "optional-integrations/kubejs/src/main/resources/kubejs.plugins.txt",
+          "sha256_at_split": "cff64c5ba81cb4855b0bb05bdc2581d7dc25bbcdb42893e7cae7b4989bb8e7ee"
+        }
+      ]
+    },
+    {
+      "id": "oculus",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/oculus/src/main/java",
+      "resource_root": "optional-integrations/oculus/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/oculus/OculusCompat.java",
+          "preserved_path": "optional-integrations/oculus/src/main/java/com/tacz/guns/compat/oculus/OculusCompat.java",
+          "sha256_at_split": "a67cebf5f89924c880c9ff0060f87570afb8257ca17ebe4f14a9fbd9458789d7"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/oculus/legacy/OculusCompatLegacy.java",
+          "preserved_path": "optional-integrations/oculus/src/main/java/com/tacz/guns/compat/oculus/legacy/OculusCompatLegacy.java",
+          "sha256_at_split": "ee16bca35c2fc6ed79f0078287499eb3e24f5fc2524f39987b777d05b0346218"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/oculus/newly/OculusCompatNewly.java",
+          "preserved_path": "optional-integrations/oculus/src/main/java/com/tacz/guns/compat/oculus/newly/OculusCompatNewly.java",
+          "sha256_at_split": "8774f53469fd8d7bbf9e51f52a8aec11b27901fbd16c05907ca5f804887eda5b"
+        }
+      ]
+    },
+    {
+      "id": "optifine",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/optifine/src/main/java",
+      "resource_root": "optional-integrations/optifine/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/optifine/OptifineCompat.java",
+          "preserved_path": "optional-integrations/optifine/src/main/java/com/tacz/guns/compat/optifine/OptifineCompat.java",
+          "sha256_at_split": "94994e7d9611f39eca251783a2c4f33f64a0bdaf66c349c3fe912b53a00395d5"
+        }
+      ]
+    },
+    {
+      "id": "shouldersurfing",
+      "status": "unsupported-source-only",
+      "runtime_enabled": false,
+      "source_root": "optional-integrations/shouldersurfing/src/main/java",
+      "resource_root": "optional-integrations/shouldersurfing/src/main/resources",
+      "files": [
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompat.java",
+          "preserved_path": "optional-integrations/shouldersurfing/src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompat.java",
+          "sha256_at_split": "c343e85ff071266da6d606f6823487351a028319d9d96895f7a0a7b1f339cf89"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompatInner.java",
+          "preserved_path": "optional-integrations/shouldersurfing/src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompatInner.java",
+          "sha256_at_split": "a7d7e4df4325b9c653ff595770b8c29cf593f11041c778d6fabfafa4d87d48e4"
+        },
+        {
+          "original_path": "src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingPlugin.java",
+          "preserved_path": "optional-integrations/shouldersurfing/src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingPlugin.java",
+          "sha256_at_split": "976f3a00ec42be056270a8b803ba7da66b0e337874a6104695ab0601417fe0dc"
+        },
+        {
+          "original_path": "src/main/resources/shouldersurfing_plugin.json",
+          "preserved_path": "optional-integrations/shouldersurfing/src/main/resources/shouldersurfing_plugin.json",
+          "sha256_at_split": "365d87d50854acc66a440c072d1e258e91ddc57eb77cbd2d07c532fc05e82102"
+        }
+      ]
+    }
+  ],
+  "reference_only_files": [
+    {
+      "original_path": "src/main/resources/META-INF/mods.toml",
+      "preserved_path": "upstream-reference/forge-loader-resources/META-INF/mods.toml",
+      "sha256_at_split": "49a1081ce1da7f063469c75ee12eac433d2b1111c74d230d9f69d9954b2bab2c"
+    },
+    {
+      "original_path": "src/main/resources/META-INF/accesstransformer.cfg",
+      "preserved_path": "upstream-reference/forge-loader-resources/META-INF/accesstransformer.cfg",
+      "sha256_at_split": "6d95dfe8ceabf61f30807aad3fd41a9e41ff3fac4134bb93d49ae0d5ee3dce2c"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.FiguraMC.luaj</groupId>
+    <artifactId>luaj-parent</artifactId>
+    <version>3.0.8-figura</version>
+  </parent>
+  <groupId>com.github.FiguraMC.luaj</groupId>
+  <artifactId>luaj-core</artifactId>
+  <version>3.0.8-figura</version>
+  <name>luaj-core</name>
+  <description>Core code for LuaJ</description>
+  <url>https://github.com/FiguraMC/luaj</url>
+  <inceptionYear>2023</inceptionYear>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://api.github.com/licenses/mit</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>FiguraMC</id>
+      <name></name>
+      <email></email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git://github.com/FiguraMC/luaj.git</connection>
+    <developerConnection>scm:git://github.com/FiguraMC/luaj.git</developerConnection>
+    <url>git://github.com/FiguraMC/luaj.git</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

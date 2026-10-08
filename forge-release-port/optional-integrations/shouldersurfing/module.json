@@ -1,0 +1,29 @@
+{
+  "id": "shouldersurfing",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/shouldersurfing/src/main/java",
+  "resource_root": "optional-integrations/shouldersurfing/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompat.java",
+      "preserved_path": "optional-integrations/shouldersurfing/src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompat.java",
+      "sha256_at_split": "c343e85ff071266da6d606f6823487351a028319d9d96895f7a0a7b1f339cf89"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompatInner.java",
+      "preserved_path": "optional-integrations/shouldersurfing/src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingCompatInner.java",
+      "sha256_at_split": "a7d7e4df4325b9c653ff595770b8c29cf593f11041c778d6fabfafa4d87d48e4"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingPlugin.java",
+      "preserved_path": "optional-integrations/shouldersurfing/src/main/java/com/tacz/guns/compat/shouldersurfing/ShoulderSurfingPlugin.java",
+      "sha256_at_split": "976f3a00ec42be056270a8b803ba7da66b0e337874a6104695ab0601417fe0dc"
+    },
+    {
+      "original_path": "src/main/resources/shouldersurfing_plugin.json",
+      "preserved_path": "optional-integrations/shouldersurfing/src/main/resources/shouldersurfing_plugin.json",
+      "sha256_at_split": "365d87d50854acc66a440c072d1e258e91ddc57eb77cbd2d07c532fc05e82102"
+    }
+  ]
+}

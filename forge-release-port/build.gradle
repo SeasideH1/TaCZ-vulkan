@@ -1,0 +1,122 @@
+plugins { id 'net.fabricmc.fabric-loom' version '1.18.3' }
+version = project.mod_version
+group = 'com.tacz'
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.kosmx.dev'; content { includeModule 'dev.kosmx.player-anim', 'anim-core' } }
+    maven { url = 'https://jitpack.io'; content { includeGroup 'com.github.FiguraMC.luaj' } }
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Retain official release pure-Java library versions for the initial compile inventory.
+    // Forge/SimpleBedrockModel/optional-mod binaries are intentionally not treated as Fabric-compatible.
+    implementation(include('org.apache.commons:commons-math3:3.6.1'))
+    implementation(include('com.github.FiguraMC.luaj:luaj-core:3.0.8-figura'))
+    implementation(include('com.github.FiguraMC.luaj:luaj-jse:3.0.8-figura'))
+    implementation(include('org.apache.bcel:bcel:6.6.1'))
+    implementation(include('com.maydaymemory:mae:1.1.2')) {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'it.unimi.dsi', module: 'fastutil'
+        exclude group: 'org.joml', module: 'joml'
+    }
+    implementation(include('dev.kosmx.player-anim:anim-core:1.0.2-rc1+1.20')) { transitive = false }
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
+    compileOnly 'org.jetbrains:annotations:26.0.2-1'
+    implementation(include('org.apache.maven:maven-artifact:3.9.12'))
+    implementation(include('com.electronwill.night-config:core:3.6.7'))
+    implementation(include('com.electronwill.night-config:toml:3.6.7'))
+
+}
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+// Approved boundary: every core source is compiled. Unsupported external
+// integrations are preserved as separate source modules, never compiler filters.
+sourceSets.main.java.setSrcDirs(['src/main/java'])
+sourceSets.main.resources.setSrcDirs(['src/main/resources'])
+tasks.register('optionalIntegrationsSources', Zip) {
+    archiveClassifier = 'unsupported-integration-sources'
+    from('optional-integrations')
+    destinationDirectory = layout.buildDirectory.dir('distributions')
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xmaxerrs', '5000']
+}
+processResources {
+    from('optional-integrations/manifest.json') {
+        rename { 'tacz-integration-scope.json' }
+    }
+    // Target-era vanilla data paths; preserve original source and default pack ZIP bytes.
+    eachFile { details ->
+        def parts = details.path.tokenize('/')
+        if (parts.size() >= 4 && parts[0] == 'data') {
+            def folders = [loot_tables:'loot_table', recipes:'recipe', advancements:'advancement', predicates:'predicate', item_modifiers:'item_modifier', functions:'function', structures:'structure']
+            def tags = [blocks:'block', items:'item', entity_types:'entity_type', fluids:'fluid', game_events:'game_event']
+            parts[2] = folders.get(parts[2], parts[2])
+            if (parts[2] == 'tags' && parts.size() >= 5) parts[3] = tags.get(parts[3], parts[3])
+            details.path = parts.join('/')
+        }
+    }
+    duplicatesStrategy = DuplicatesStrategy.FAIL
+    inputs.property 'version', project.version
+    inputs.property 'minecraft_version', project.minecraft_version
+    inputs.property 'minecraft_dependency', project.minecraft_dependency
+    inputs.property 'loader_version', project.loader_version
+    filesMatching('fabric.mod.json') {
+        expand version: project.version, minecraft_version: project.minecraft_version, minecraft_dependency: project.minecraft_dependency, loader_version: project.loader_version
+    }
+    // Same reviewed rules as toolchains/resource_migration.py. Only root vanilla
+    // crafting recipes are transformed; authored custom gunpack bytes stay intact.
+    doLast {
+        def convertIngredient
+        convertIngredient = { value ->
+            if (value instanceof List) return value.collect { convertIngredient(it) }
+            if (value instanceof Map && value.keySet() == (['item'] as Set)) return value.item
+            if (value instanceof Map && value.keySet() == (['tag'] as Set)) {
+                def tag = value.tag
+                if (tag == 'forge:glass') tag = 'c:glass_blocks'
+                else if (tag.startsWith('forge:')) tag = 'c:' + tag.substring(6)
+                return '#' + tag
+            }
+            return value
+        }
+        fileTree(destinationDir).matching { include 'data/*/recipe/**/*.json' }.each { file ->
+            def recipe = new groovy.json.JsonSlurper().parse(file)
+            if (recipe.type in ['minecraft:crafting_shaped', 'minecraft:crafting_shapeless']) {
+                if (recipe.type == 'minecraft:crafting_shaped') recipe.key = recipe.key.collectEntries { key, value -> [key, convertIngredient(value)] }
+                else recipe.ingredients = recipe.ingredients.collect { convertIngredient(it) }
+                def result = recipe.result
+                if (result instanceof Map && result.containsKey('item')) {
+                    assert !result.containsKey('id'): "Ambiguous recipe result ID: ${file}"
+                    result.id = result.remove('item')
+                }
+                if (result instanceof Map && result.containsKey('nbt')) {
+                    def nbt = result.remove('nbt')
+                    assert nbt instanceof Map: "Legacy NBT requires explicit conversion: ${file}"
+                    if (!result.containsKey('components')) result.components = [:]
+                    assert !result.components.containsKey('minecraft:custom_data'): "Ambiguous custom data: ${file}"
+                    result.components['minecraft:custom_data'] = nbt
+                }
+                file.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(recipe)) + '\n'
+            }
+        }
+        def boatFile = new File(destinationDir, 'data/tacz/tags/entity_type/interact_key/whitelist.json')
+        if (boatFile.exists()) {
+            def tag = new groovy.json.JsonSlurper().parse(boatFile)
+            def replacements = ['minecraft:boat':'#c:boats', 'minecraft:chest_boat':'minecraft:poplar_chest_boat']
+            tag.values = tag.values.collect { value -> replacements.get(value, value) }
+            boatFile.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(tag)) + '\n'
+        }
+    }
+}
+loom {
+    runs {
+        client { vmArg '-Xmx2G' }
+        server { vmArg '-Xmx1G' }
+    }
+}

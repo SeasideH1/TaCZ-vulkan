@@ -1,0 +1,42 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.api.item.builder;
+
+import com.tacz.guns.api.DefaultAssets;
+import com.tacz.guns.api.item.IAmmo;
+import com.tacz.guns.init.ModItems;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
+
+public final class AmmoItemBuilder {
+    private int count = 1;
+    private Identifier ammoId = DefaultAssets.DEFAULT_AMMO_ID;
+
+    private AmmoItemBuilder() {
+    }
+
+    public static AmmoItemBuilder create() {
+        return new AmmoItemBuilder();
+    }
+
+    public AmmoItemBuilder setCount(int count) {
+        this.count = Math.max(count, 1);
+        return this;
+    }
+
+    public AmmoItemBuilder setId(Identifier id) {
+        this.ammoId = id;
+        return this;
+    }
+
+    public ItemStack build() {
+        ItemStack ammo = new ItemStack(ModItems.AMMO.get(), this.count);
+        if (ammo.getItem() instanceof IAmmo iAmmo) {
+            iAmmo.setAmmoId(ammo, this.ammoId);
+        }
+        return ammo;
+    }
+}

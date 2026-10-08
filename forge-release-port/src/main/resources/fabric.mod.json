@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "tacz",
+  "version": "${version}",
+  "name": "TaCZ-vulkan (experimental Fabric port)",
+  "description": "Unofficial experimental TACZ core/default-gunpack port for Minecraft 26.4-snapshot-3 and native rendering. Full compatibility and performance remain unverified. See repository support scope.",
+  "license": "GPL-3.0 / CC-BY-NC-ND-4.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.tacz.guns.fabric.TaczFabric"
+    ],
+    "client": [
+      "com.tacz.guns.fabric.client.TaczFabricClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_dependency}",
+    "java": ">=25",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "tacz.mixins.json"
+  ],
+  "custom": {
+    "tacz:scope": "original-core-and-default-gunpack",
+    "tacz:unsupported-integrations": [
+      "acceleratedrendering",
+      "carryon",
+      "cloth-config",
+      "controllable",
+      "jei",
+      "kubejs",
+      "oculus",
+      "optifine",
+      "shouldersurfing"
+    ],
+    "tacz:scope-manifest": "tacz-integration-scope.json"
+  },
+  "authors": [
+    "Serene Wave Studio | Timeless Squad"
+  ],
+  "contact": {
+    "homepage": "https://github.com/SeasideH1/TaCZ-vulkan",
+    "sources": "https://github.com/SeasideH1/TaCZ-vulkan",
+    "issues": "https://github.com/SeasideH1/TaCZ-vulkan/issues"
+  }
+}

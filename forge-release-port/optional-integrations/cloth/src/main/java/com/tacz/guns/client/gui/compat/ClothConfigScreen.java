@@ -1,0 +1,58 @@
+package com.tacz.guns.client.gui.compat;
+
+import com.tacz.guns.init.CompatRegistry;
+import net.minecraft.util.Util;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.MultiLineLabel;
+import net.minecraft.client.gui.screens.ConfirmLinkScreen;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
+
+public class ClothConfigScreen extends Screen {
+    public static final String CLOTH_CONFIG_URL = "https://www.curseforge.com/minecraft/mc-mods/cloth-config";
+    private final Screen lastScreen;
+    private MultiLineLabel message = MultiLineLabel.EMPTY;
+
+    public ClothConfigScreen(Screen lastScreen) {
+        super(Component.literal("Cloth Config API"));
+        this.lastScreen = lastScreen;
+    }
+
+    public static void registerNoClothConfigPage() {
+        if (!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded(CompatRegistry.CLOTH_CONFIG)) {
+            com.tacz.guns.fabric.client.ClientConfigScreens.register(ClothConfigScreen::new);
+        }
+    }
+
+    @Override
+    protected void init() {
+        int posX = (this.width - 200) / 2;
+        int posY = this.height / 2;
+        this.message = MultiLineLabel.create(this.font, Component.translatable("gui.tacz.cloth_config_warning.tips"), 300);
+        this.addRenderableWidget(
+                Button.builder(Component.translatable("gui.tacz.cloth_config_warning.download"), b -> openUrl(CLOTH_CONFIG_URL))
+                        .bounds(posX, posY - 15, 200, 20).build()
+        );
+        this.addRenderableWidget(
+                Button.builder(CommonComponents.GUI_BACK, b -> Minecraft.getInstance().gui.setScreen(this.lastScreen))
+                        .bounds(posX, posY + 50, 200, 20).build()
+        );
+    }
+
+    @Override
+    public void extractRenderState(@NotNull GuiGraphicsExtractor gui, int pMouseX, int pMouseY, float pPartialTick) {
+        this.message.visitLines(net.minecraft.client.gui.TextAlignment.CENTER, this.width / 2, 80, font.lineHeight, gui.textRenderer());
+        super.extractRenderState(gui, pMouseX, pMouseY, pPartialTick);
+    }
+
+    private void openUrl(String url) {
+        if (StringUtils.isNotBlank(url) && minecraft != null) {
+            ConfirmLinkScreen.confirmLinkNow(this, java.net.URI.create(url), true);
+        }
+    }
+}

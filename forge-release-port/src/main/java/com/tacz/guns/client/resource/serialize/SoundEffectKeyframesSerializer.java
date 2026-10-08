@@ -1,0 +1,40 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.client.resource.serialize;
+
+import com.google.gson.*;
+import com.tacz.guns.client.resource.pojo.animation.bedrock.SoundEffectKeyframes;
+import it.unimi.dsi.fastutil.doubles.Double2ObjectRBTreeMap;
+import net.minecraft.resources.Identifier;
+import net.minecraft.util.GsonHelper;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+
+@SuppressWarnings("ALL")
+public class SoundEffectKeyframesSerializer implements JsonDeserializer<SoundEffectKeyframes> {
+    @Override
+    public SoundEffectKeyframes deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
+        Double2ObjectRBTreeMap<Identifier> keyframes = new Double2ObjectRBTreeMap<>();
+        // 如果是对象
+        if (json.isJsonObject()) {
+            JsonObject jsonObject = json.getAsJsonObject();
+            for (Map.Entry<String, JsonElement> entrySet : jsonObject.entrySet()) {
+                double time = Double.parseDouble(entrySet.getKey());
+                JsonElement value = entrySet.getValue();
+                if (value.isJsonObject()) {
+                    String soundId = GsonHelper.getAsString(value.getAsJsonObject(), "effect");
+                    Identifier soundLocation = Identifier.tryParse(soundId);
+                    if (soundLocation != null) {
+                        keyframes.put(time, soundLocation);
+                    }
+                }
+            }
+            return new SoundEffectKeyframes(keyframes);
+        }
+        return new SoundEffectKeyframes(keyframes);
+    }
+}

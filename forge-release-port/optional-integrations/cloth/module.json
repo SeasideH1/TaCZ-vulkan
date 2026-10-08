@@ -1,0 +1,69 @@
+{
+  "id": "cloth",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/cloth/src/main/java",
+  "resource_root": "optional-integrations/cloth/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/MenuIntegration.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/MenuIntegration.java",
+      "sha256_at_split": "aabefafed53a4242fbdbd33fc8a6f13a1fa0a6d73d70b4a5808bab015a90755f"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/KeyClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/KeyClothConfig.java",
+      "sha256_at_split": "31e6648c103fd4ca05ff02d55df7919e103e256acb7119329ca45996c15590d2"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/RenderClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/RenderClothConfig.java",
+      "sha256_at_split": "2d59e143fb2482fe364e86835e20c5c8d7f08b2ca3dcedccfa5626ca775ba839"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/ResourceClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/ResourceClothConfig.java",
+      "sha256_at_split": "1c1545438e5b3f66a4ec4f916d617ae0cd580b5fef376280052ef93355eaf361"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/SoundClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/SoundClothConfig.java",
+      "sha256_at_split": "23441e9bf993f4a87a0c60d21484ace09e2d66cf1cdf6dd2c3c0602c56502c24"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/client/ZoomClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/client/ZoomClothConfig.java",
+      "sha256_at_split": "54074cddf1be429b49aa4fc5f07e98de3c6a3d204f2b5615a088a04c67dd0ed3"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/common/AmmoClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/common/AmmoClothConfig.java",
+      "sha256_at_split": "7a357d127d62f73897ced76321d44a03fa7a9694b654e46b9e534b7ed04e4309"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/common/GunClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/common/GunClothConfig.java",
+      "sha256_at_split": "5f23f2fd848433c3f49f5806fe1410555b167db6352d551edb76df69415d96ff"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/common/OtherClothConfig.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/common/OtherClothConfig.java",
+      "sha256_at_split": "12c450b9b9a761534cb97159b2214f7e83dfb982be7afce95388e6489efbcf12"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/widget/CrosshairDropdown.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/widget/CrosshairDropdown.java",
+      "sha256_at_split": "6d7f5150fbe8b1806f3f4c2ec6b57be5838721ad344dbd5426d0685e65807b67"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/cloth/widget/OpenGunPackDirEntry.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/compat/cloth/widget/OpenGunPackDirEntry.java",
+      "sha256_at_split": "1aaf6d6dfd3d8093801bf22e16ec02cd635fafbba39ac574d2f1767f0fe16bc4"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/client/gui/compat/ClothConfigScreen.java",
+      "preserved_path": "optional-integrations/cloth/src/main/java/com/tacz/guns/client/gui/compat/ClothConfigScreen.java",
+      "sha256_at_split": "ad5b13a29a44ec5875ff722d72b737dfb947a2b12324a5d117695050bdf42668"
+    }
+  ]
+}

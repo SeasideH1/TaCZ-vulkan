@@ -1,0 +1,51 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.tacz.guns.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "common.LivingEntityMixin",
+    "common.ServerGamePacketListenerImplMixin",
+    "common.ServerPlayerMixin",
+    "common.ServerPlayNetHandlerMixin",
+    "common.FolderRepositorySourceAccessor",
+    "common.PackRepositoryMixin",
+    "common.ServerEntitySpawnDataMixin",
+    "common.PlayerPoseMixin",
+    "common.ServerExplosionAccessor",
+    "common.AmmoStackComponentsMixin"
+  ],
+  "client": [
+    "client.AbstractButtonMixin",
+    "client.GameRendererMixin",
+    "client.HumanoidModelMixin",
+    "client.ItemInHandLayerMixin",
+    "client.ItemInHandRendererMixin",
+    "client.LanguageMixin",
+    "client.LocalPlayerMixin",
+    "client.MouseHandlerMixin",
+    "client.PlayerModelMixin",
+    "client.SoundManagerPreparationsMixin",
+    "client.StairBlockAccessor",
+    "client.input.KeyboardInputMixin",
+    "client.input.MouseInputMixin",
+    "client.input.MinecraftInputMixin",
+    "client.input.MinecraftInputAccessor",
+    "client.input.KeyCategoryMixin",
+    "client.ItemTintSourcesAccessor",
+    "client.RangeSelectPropertiesAccessor",
+    "client.GuiGraphicsStateAccessor",
+    "client.ItemModelsAccessor",
+    "client.input.WalkDistanceMixin",
+    "client.input.CarriedItemAccessor",
+    "client.NativeCameraMixin",
+    "client.NativeFovModifierMixin",
+    "client.RenderTypeInvoker",
+    "client.NativeHudVisibilityMixin",
+    "client.NativeLivingExtractionMixin",
+    "client.NativeEntityExtractionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

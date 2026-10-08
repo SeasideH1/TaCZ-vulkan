@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "description": "TACZ native core resources for Minecraft 26.4-snapshot-3",
+    "min_format": [
+      100,
+      0
+    ],
+    "max_format": [
+      123,
+      0
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "controllable",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/controllable/src/main/java",
+  "resource_root": "optional-integrations/controllable/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/controllable/ControllableCompat.java",
+      "preserved_path": "optional-integrations/controllable/src/main/java/com/tacz/guns/compat/controllable/ControllableCompat.java",
+      "sha256_at_split": "4da48eefaead7c7956a0361ad1dab144377810f2d4599f2426b43e4338055813"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/controllable/ControllableInner.java",
+      "preserved_path": "optional-integrations/controllable/src/main/java/com/tacz/guns/compat/controllable/ControllableInner.java",
+      "sha256_at_split": "b41390dde80d70fe1a8975b1c852b2425b810c03eb1ac158f265d1345bb21024"
+    }
+  ]
+}

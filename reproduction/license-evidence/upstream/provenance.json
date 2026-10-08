@@ -1,0 +1,32 @@
+[
+  {
+    "name": "anim-core-MIT.txt",
+    "url": "https://raw.githubusercontent.com/KosmX/minecraftPlayerAnimator/1.20/LICENSE",
+    "sha256": "b84d8d474a03c6dbc4066116b397ec2331c72090ba98cd3b9dec607ae72db9ed",
+    "path": "reproduction/license-evidence/upstream/anim-core-MIT.txt"
+  },
+  {
+    "name": "mae-MIT.txt",
+    "url": "https://raw.githubusercontent.com/286799714/MaydayAnimationEngine/master/LICENSE",
+    "sha256": "f498a3d3cb747f75724ce8fc5d39bf62d4ad9373da405ea538fa12af73478932",
+    "path": "reproduction/license-evidence/upstream/mae-MIT.txt"
+  },
+  {
+    "name": "night-config-LGPL.txt",
+    "url": "https://raw.githubusercontent.com/TheElectronWill/Night-Config/v3.6.7/LICENSE",
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "path": "reproduction/license-evidence/upstream/night-config-LGPL.txt"
+  },
+  {
+    "name": "luaj-MIT.txt",
+    "url": "https://raw.githubusercontent.com/FiguraMC/luaj/3.0.8-figura/LICENSE",
+    "sha256": "74846ae7bff78398d5641fd658d53fcf26808e37bbe7bbb9dcf07b925d0fa6ac",
+    "path": "reproduction/license-evidence/upstream/luaj-MIT.txt"
+  },
+  {
+    "name": "simplebedrockmodel-LGPL.txt",
+    "url": "https://raw.githubusercontent.com/MCModderAnchor/SimpleBedrockModel/1.20.1-dev/LICENSE",
+    "sha256": "a5681bf9b05db14d86776930017c647ad9e6e56ff6bbcfdf21e5848288dfaf1b",
+    "path": "reproduction/license-evidence/upstream/simplebedrockmodel-LGPL.txt"
+  }
+]

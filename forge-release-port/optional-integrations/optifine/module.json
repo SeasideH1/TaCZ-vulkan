@@ -1,0 +1,14 @@
+{
+  "id": "optifine",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/optifine/src/main/java",
+  "resource_root": "optional-integrations/optifine/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/optifine/OptifineCompat.java",
+      "preserved_path": "optional-integrations/optifine/src/main/java/com/tacz/guns/compat/optifine/OptifineCompat.java",
+      "sha256_at_split": "94994e7d9611f39eca251783a2c4f33f64a0bdaf66c349c3fe912b53a00395d5"
+    }
+  ]
+}

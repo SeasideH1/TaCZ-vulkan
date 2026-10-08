@@ -1,0 +1,242 @@
+[
+  {
+    "coordinate": "org.apache.commons:commons-math3:3.6.1",
+    "artifact_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar",
+    "artifact_sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308",
+    "pom_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.pom",
+    "licenses": [],
+    "embedded_notices": [
+      {
+        "jar_entry": "META-INF/LICENSE.txt",
+        "sha256": "64f23963615950bad9ddd31569a7f09afbbe11b81d94873ffd9b1cac6081a11d",
+        "saved_path": "reproduction/license-evidence/embedded/org.apache.commons__commons-math3__3.6.1/META-INF/LICENSE.txt"
+      },
+      {
+        "jar_entry": "META-INF/NOTICE.txt",
+        "sha256": "5495442a32bfc2b93b4a8f2c34c5c218d16cca434aa5684fb953d9419120e3fa",
+        "saved_path": "reproduction/license-evidence/embedded/org.apache.commons__commons-math3__3.6.1/META-INF/NOTICE.txt"
+      }
+    ],
+    "pom_sha256": "fad72336ea7d7dd06da103144e3740db508fa4b17d9c54d7847737edc24a7e60",
+    "scm_url": "https://git-wip-us.apache.org/repos/asf?p=commons-math.git",
+    "parent": {
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-parent",
+      "version": "39"
+    }
+  },
+  {
+    "coordinate": "org.apache.bcel:bcel:6.6.1",
+    "artifact_url": "https://repo.maven.apache.org/maven2/org/apache/bcel/bcel/6.6.1/bcel-6.6.1.jar",
+    "artifact_sha256": "50e909f555c772285d0f282d22ec7ca246010fa6996d40226357a28555445904",
+    "pom_url": "https://repo.maven.apache.org/maven2/org/apache/bcel/bcel/6.6.1/bcel-6.6.1.pom",
+    "licenses": [],
+    "embedded_notices": [
+      {
+        "jar_entry": "META-INF/LICENSE.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "saved_path": "reproduction/license-evidence/embedded/org.apache.bcel__bcel__6.6.1/META-INF/LICENSE.txt"
+      },
+      {
+        "jar_entry": "META-INF/NOTICE.txt",
+        "sha256": "b678c89821ec8be27d16b9b6d0f9af0d967b7b5e97e35edfe012aa40d229bfc3",
+        "saved_path": "reproduction/license-evidence/embedded/org.apache.bcel__bcel__6.6.1/META-INF/NOTICE.txt"
+      }
+    ],
+    "pom_sha256": "dd2aedef56bee1b694f1e15f59b64e5ee18032bf9343bbed1841b047ea19e958",
+    "scm_url": "https://gitbox.apache.org/repos/asf?p=commons-bcel.git",
+    "parent": {
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-parent",
+      "version": "54"
+    }
+  },
+  {
+    "coordinate": "com.maydaymemory:mae:1.1.2",
+    "artifact_url": "https://repo.maven.apache.org/maven2/com/maydaymemory/mae/1.1.2/mae-1.1.2.jar",
+    "artifact_sha256": "39e6337f1214a9facadc9128d2aca501be36789d376d7fba56f15b2c3a5a27d3",
+    "pom_url": "https://repo.maven.apache.org/maven2/com/maydaymemory/mae/1.1.2/mae-1.1.2.pom",
+    "licenses": [
+      {
+        "name": "The MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+        "distribution": null
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "0727ab6fd799797cfedc57ec09a9a5a8c5925095aa8309203bdb78dc03ba44cd",
+    "scm_url": "https://github.com/286799714/MaydayAnimationEngine",
+    "parent": {
+      "groupId": null,
+      "artifactId": null,
+      "version": null
+    }
+  },
+  {
+    "coordinate": "com.google.code.findbugs:jsr305:3.0.2",
+    "artifact_url": "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+    "artifact_sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+    "pom_url": "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom",
+    "licenses": [
+      {
+        "name": "The Apache Software License, Version 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+        "distribution": "repo"
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "19889dbdf1b254b2601a5ee645b8147a974644882297684c798afe5d63d78dfe",
+    "scm_url": "https://code.google.com/p/jsr-305/",
+    "parent": {
+      "groupId": "org.sonatype.oss",
+      "artifactId": "oss-parent",
+      "version": "7"
+    }
+  },
+  {
+    "coordinate": "org.jetbrains:annotations:26.0.2-1",
+    "artifact_url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/26.0.2-1/annotations-26.0.2-1.jar",
+    "artifact_sha256": "2037be378980d3ba9333e97955f3b2cde392aa124d04ca73ce2eee6657199297",
+    "pom_url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/26.0.2-1/annotations-26.0.2-1.pom",
+    "licenses": [
+      {
+        "name": "The Apache Software License, Version 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+        "distribution": "repo"
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "9a7e1ede1b90173052c1e6ed724fb0f0ebcc88ff682d023f0c9b343e1377a7ff",
+    "scm_url": "https://github.com/JetBrains/java-annotations",
+    "parent": {
+      "groupId": null,
+      "artifactId": null,
+      "version": null
+    }
+  },
+  {
+    "coordinate": "org.apache.maven:maven-artifact:3.9.12",
+    "artifact_url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.9.12/maven-artifact-3.9.12.jar",
+    "artifact_sha256": "4361cecd7e863c0992a6c901202afbb6db2a06b4f9a5e4b22481d4d39bcf137c",
+    "pom_url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.9.12/maven-artifact-3.9.12.pom",
+    "licenses": [],
+    "embedded_notices": [
+      {
+        "jar_entry": "META-INF/LICENSE",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "saved_path": "reproduction/license-evidence/embedded/org.apache.maven__maven-artifact__3.9.12/META-INF/LICENSE"
+      },
+      {
+        "jar_entry": "META-INF/NOTICE",
+        "sha256": "e3425da737d147b030e91d1da93968b3aa6b835af9c59662909f6d80661d8116",
+        "saved_path": "reproduction/license-evidence/embedded/org.apache.maven__maven-artifact__3.9.12/META-INF/NOTICE"
+      }
+    ],
+    "pom_sha256": "bdfb423e800d31c1d05cf6eed602ac48535afe3236007a076083ceb6fae89563",
+    "scm_url": null,
+    "parent": {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven",
+      "version": "3.9.12"
+    }
+  },
+  {
+    "coordinate": "com.electronwill.night-config:core:3.6.7",
+    "artifact_url": "https://repo.maven.apache.org/maven2/com/electronwill/night-config/core/3.6.7/core-3.6.7.jar",
+    "artifact_sha256": "fa1272c026b500338dae2997f5ea4b02c632f54769de9649a6a390ca1cb234be",
+    "pom_url": "https://repo.maven.apache.org/maven2/com/electronwill/night-config/core/3.6.7/core-3.6.7.pom",
+    "licenses": [
+      {
+        "name": "GNU Lesser General Public License v3.0",
+        "url": "https://www.gnu.org/licenses/lgpl-3.0.txt",
+        "distribution": null
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "48973d68979c32a3a3566913418d93315fb05def5a046dada6396c9794adc889",
+    "scm_url": "'https://github.com/TheElectronWill/Night-Config/tree/master'",
+    "parent": {
+      "groupId": null,
+      "artifactId": null,
+      "version": null
+    }
+  },
+  {
+    "coordinate": "com.electronwill.night-config:toml:3.6.7",
+    "artifact_url": "https://repo.maven.apache.org/maven2/com/electronwill/night-config/toml/3.6.7/toml-3.6.7.jar",
+    "artifact_sha256": "c0a69bb6e3dadebb183184b57f92b865c9fd7c8191f37133a70e519ac09dad11",
+    "pom_url": "https://repo.maven.apache.org/maven2/com/electronwill/night-config/toml/3.6.7/toml-3.6.7.pom",
+    "licenses": [
+      {
+        "name": "GNU Lesser General Public License v3.0",
+        "url": "https://www.gnu.org/licenses/lgpl-3.0.txt",
+        "distribution": null
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "f7a72f1be3465d6b998d3b8bb3c19396d6200497ad3550d4e110e529ac6e1a95",
+    "scm_url": "'https://github.com/TheElectronWill/Night-Config/tree/master'",
+    "parent": {
+      "groupId": null,
+      "artifactId": null,
+      "version": null
+    }
+  },
+  {
+    "coordinate": "com.github.FiguraMC.luaj:luaj-core:3.0.8-figura",
+    "artifact_url": "https://jitpack.io/com/github/FiguraMC/luaj/luaj-core/3.0.8-figura/luaj-core-3.0.8-figura.jar",
+    "artifact_sha256": "6050678ca1dad5e2a4c401cc9ce968d282d30105b2ea46f79c30abccdfa30fbe",
+    "pom_url": "https://jitpack.io/com/github/FiguraMC/luaj/luaj-core/3.0.8-figura/luaj-core-3.0.8-figura.pom",
+    "licenses": [
+      {
+        "name": "MIT License",
+        "url": "https://api.github.com/licenses/mit",
+        "distribution": "repo"
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "09805352f37d550e945f8467cd3424cffef38a948bccc07f6cdb0c475e460889",
+    "scm_url": "git://github.com/FiguraMC/luaj.git",
+    "parent": {
+      "groupId": "com.github.FiguraMC.luaj",
+      "artifactId": "luaj-parent",
+      "version": "3.0.8-figura"
+    }
+  },
+  {
+    "coordinate": "com.github.FiguraMC.luaj:luaj-jse:3.0.8-figura",
+    "artifact_url": "https://jitpack.io/com/github/FiguraMC/luaj/luaj-jse/3.0.8-figura/luaj-jse-3.0.8-figura.jar",
+    "artifact_sha256": "1783d249b5152c6f110c1bcca5fb0d4ef0075fc291c912f6b74e2bb61472e95e",
+    "pom_url": "https://jitpack.io/com/github/FiguraMC/luaj/luaj-jse/3.0.8-figura/luaj-jse-3.0.8-figura.pom",
+    "licenses": [
+      {
+        "name": "MIT License",
+        "url": "https://api.github.com/licenses/mit",
+        "distribution": "repo"
+      }
+    ],
+    "embedded_notices": [],
+    "pom_sha256": "f34bb5b840bac035e062ec75e38f989a22cb3958a328bd042aef9fa4571a3280",
+    "scm_url": "git://github.com/FiguraMC/luaj.git",
+    "parent": {
+      "groupId": "com.github.FiguraMC.luaj",
+      "artifactId": "luaj-parent",
+      "version": "3.0.8-figura"
+    }
+  },
+  {
+    "coordinate": "dev.kosmx.player-anim:anim-core:1.0.2-rc1+1.20",
+    "artifact_url": "https://maven.kosmx.dev/dev/kosmx/player-anim/anim-core/1.0.2-rc1+1.20/anim-core-1.0.2-rc1+1.20.jar",
+    "artifact_sha256": "1cc57381f7e300d01c3059f9bfae009a04a3c35a7cb0a448858cebcab268abf5",
+    "pom_url": "https://maven.kosmx.dev/dev/kosmx/player-anim/anim-core/1.0.2-rc1+1.20/anim-core-1.0.2-rc1+1.20.pom",
+    "licenses": [],
+    "embedded_notices": [],
+    "pom_sha256": "2366855c1ac6b3ed75c115b525f2c449d10b8fa3ca958688260678a8c903fe4a",
+    "scm_url": null,
+    "parent": {
+      "groupId": null,
+      "artifactId": null,
+      "version": null
+    }
+  }
+]

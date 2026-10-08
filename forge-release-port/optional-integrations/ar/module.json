@@ -1,0 +1,44 @@
+{
+  "id": "ar",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/ar/src/main/java",
+  "resource_root": "optional-integrations/ar/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/ar/ARCompat.java",
+      "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/ARCompat.java",
+      "sha256_at_split": "c37aeb6cb6cf26865ad1543a94be3ebec890e79cd750a9ebb413c1cf3ebd75e2"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/ar/ARCompatImpl.java",
+      "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/ARCompatImpl.java",
+      "sha256_at_split": "b733d10406224e092c9f33f183053eab9e2d71ceaceee4e4187da10ac7df1c13"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/ar/AcceleratedBeamRenderer.java",
+      "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/AcceleratedBeamRenderer.java",
+      "sha256_at_split": "dadf1d54996bde1df23a312cba6080aed185bf5b79525326689fe8856ddfbf1c"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/ar/BeamRenderContext.java",
+      "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/compat/ar/BeamRenderContext.java",
+      "sha256_at_split": "b30d3d14c38cdf3fc949c91064dccf59945cf59e31b7941222f718f76b2dafa8"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/mixin/client/ar/ARCompatMixinPlugin.java",
+      "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/mixin/client/ar/ARCompatMixinPlugin.java",
+      "sha256_at_split": "f41cd418896170606bec17e5c9ab12592ba416f518eb20d8a36c4f7b63da8e72"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/mixin/client/ar/BedrockPartMixin.java",
+      "preserved_path": "optional-integrations/ar/src/main/java/com/tacz/guns/mixin/client/ar/BedrockPartMixin.java",
+      "sha256_at_split": "51a1a28d031deae98dd2ab68803041fd99eff1e119ccf435e4e0c52a5d701520"
+    },
+    {
+      "original_path": "src/main/resources/tacz.compat.acceleratedrendering.mixins.json",
+      "preserved_path": "optional-integrations/ar/src/main/resources/tacz.compat.acceleratedrendering.mixins.json",
+      "sha256_at_split": "aa9a449eeaf9d1789fb8f16c736ac1304677f84c89d75afd4af1465612aecaa6"
+    }
+  ]
+}

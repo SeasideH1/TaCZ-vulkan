@@ -1,0 +1,24 @@
+{
+  "id": "oculus",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/oculus/src/main/java",
+  "resource_root": "optional-integrations/oculus/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/oculus/OculusCompat.java",
+      "preserved_path": "optional-integrations/oculus/src/main/java/com/tacz/guns/compat/oculus/OculusCompat.java",
+      "sha256_at_split": "a67cebf5f89924c880c9ff0060f87570afb8257ca17ebe4f14a9fbd9458789d7"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/oculus/legacy/OculusCompatLegacy.java",
+      "preserved_path": "optional-integrations/oculus/src/main/java/com/tacz/guns/compat/oculus/legacy/OculusCompatLegacy.java",
+      "sha256_at_split": "ee16bca35c2fc6ed79f0078287499eb3e24f5fc2524f39987b777d05b0346218"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/oculus/newly/OculusCompatNewly.java",
+      "preserved_path": "optional-integrations/oculus/src/main/java/com/tacz/guns/compat/oculus/newly/OculusCompatNewly.java",
+      "sha256_at_split": "8774f53469fd8d7bbf9e51f52a8aec11b27901fbd16c05907ca5f804887eda5b"
+    }
+  ]
+}

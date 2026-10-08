@@ -1,0 +1,39 @@
+{
+  "id": "jei",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/jei/src/main/java",
+  "resource_root": "optional-integrations/jei/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/jei/GunModPlugin.java",
+      "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/GunModPlugin.java",
+      "sha256_at_split": "8c545387fc90f4c1460816a939f106753b68376a003b1f7e9a47ed7d44d460d4"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/jei/GunModSubtype.java",
+      "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/GunModSubtype.java",
+      "sha256_at_split": "59d4e05aed9d56a65864052cf5a7cebc95e7f74d8524fce6db3b776483169a65"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/jei/category/AttachmentQueryCategory.java",
+      "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/category/AttachmentQueryCategory.java",
+      "sha256_at_split": "d91d46ab0ee3cf35c43ec790be096ae3f0cb88ed0c27edcd77937d7a55959176"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/jei/category/GunSmithTableCategory.java",
+      "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/category/GunSmithTableCategory.java",
+      "sha256_at_split": "33d8593e38a8dad8ad1b4208e813d3b9ad1027cbc9cda6c81e0642613a2b0a83"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/jei/category/package-info.java",
+      "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/category/package-info.java",
+      "sha256_at_split": "3f23f532ea03618b9cb6861fbfe8bd7311c6bc27b105b4e2868b7bc7a087cc22"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/jei/entry/AttachmentQueryEntry.java",
+      "preserved_path": "optional-integrations/jei/src/main/java/com/tacz/guns/compat/jei/entry/AttachmentQueryEntry.java",
+      "sha256_at_split": "72f20bba7a21e5c80b08a0b081844d9ae3031f780b49e62f76fb1701ccf59f64"
+    }
+  ]
+}

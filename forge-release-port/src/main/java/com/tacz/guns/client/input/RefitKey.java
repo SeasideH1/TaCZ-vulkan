@@ -1,0 +1,48 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.client.input;
+
+import com.mojang.blaze3d.platform.InputConstants;
+import com.tacz.guns.api.item.IGun;
+import com.tacz.guns.client.gui.GunRefitScreen;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import com.tacz.guns.fabric.client.event.InputEvent;
+import com.tacz.guns.api.event.SubscribeEvent;
+
+import static com.tacz.guns.util.InputExtraCheck.isInGame;
+
+@Environment(EnvType.CLIENT)
+public class RefitKey {
+    public static final KeyMapping REFIT_KEY = new KeyMapping("key.tacz.refit.desc",
+            InputConstants.Type.KEYBOARD,
+            InputConstants.KEY_Z,
+            TaczKeyBindings.CATEGORY);
+
+    @SubscribeEvent
+    public static void onRefitPress(InputEvent.Key event) {
+        if (event.getAction() == InputConstants.PRESS && REFIT_KEY.matches(event.keyEvent())) {
+            LocalPlayer player = Minecraft.getInstance().player;
+            if (player == null || player.isSpectator()) {
+                return;
+            }
+            if (isInGame()) {
+                if (IGun.mainHandHoldGun(player) && Minecraft.getInstance().gui.screen() == null) {
+                    IGun iGun = IGun.getIGunOrNull(player.getMainHandItem());
+                    if (iGun != null && iGun.hasAttachmentLock(player.getMainHandItem())) {
+                        return;
+                    }
+                    Minecraft.getInstance().gui.setScreen(new GunRefitScreen());
+                }
+            } else if (Minecraft.getInstance().gui.screen() instanceof GunRefitScreen refitScreen) {
+                refitScreen.onClose();
+            }
+        }
+    }
+}

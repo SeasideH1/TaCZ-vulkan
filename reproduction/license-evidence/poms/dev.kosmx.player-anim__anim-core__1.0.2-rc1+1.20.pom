@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.kosmx.player-anim</groupId>
+  <artifactId>anim-core</artifactId>
+  <version>1.0.2-rc1+1.20</version>
+  <name>playerAnimatorCORE</name>
+  <description>Minecraft animation api</description>
+  <url>https://github.com/KosmX/emotes</url>
+  <developers>
+    <developer>
+      <id>kosmx</id>
+      <name>KosmX</name>
+      <email>kosmx.mc@gmail.com</email>
+    </developer>
+  </developers>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.9</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>

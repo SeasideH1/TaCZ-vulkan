@@ -1,0 +1,114 @@
+{
+  "id": "kubejs",
+  "status": "unsupported-source-only",
+  "runtime_enabled": false,
+  "source_root": "optional-integrations/kubejs/src/main/java",
+  "resource_root": "optional-integrations/kubejs/src/main/resources",
+  "files": [
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/TimelessKubeJSPlugin.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/TimelessKubeJSPlugin.java",
+      "sha256_at_split": "f9ddfc229f6d901936e40a83c64dcfa6e9665ebe25dfed966b64b9285f5f3e75"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/custom/CustomGunItemBuilder.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/custom/CustomGunItemBuilder.java",
+      "sha256_at_split": "7f4e748e934c7fd9d4f36b911be310c3b28e91d298d2ce65d2c06aec3e304085"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/custom/KubeJSCustomGunItem.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/custom/KubeJSCustomGunItem.java",
+      "sha256_at_split": "32d3b0953df110a14ce08022172d96f4fb07f131b52c6e2482b76e8634628495"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/GunKubeJSEvents.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/GunKubeJSEvents.java",
+      "sha256_at_split": "00b19d2e2af66d4ffb3c3ed696843825d8edf64695c4fb6a9ef404461584b8ee"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessClientEvents.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessClientEvents.java",
+      "sha256_at_split": "fc5f24ddf8fbfac90c57a6d47f1876a9d44cdd47fe0b975dcacb91ef9e6f42d7"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessCommonEvents.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessCommonEvents.java",
+      "sha256_at_split": "dc312c84db1b07f5bcaa35bcf75976030e08151ea2c0499b3b1c4321775153e5"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessForgeEventWrappers.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessForgeEventWrappers.java",
+      "sha256_at_split": "8f3d1a19c2047be8211d8a4eac537e2d5484eac7962f93d12c09b22ecb236589"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessKubeJSEventRegister.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessKubeJSEventRegister.java",
+      "sha256_at_split": "3a13b05b8603bdbc1a6e836eb1766b2afa2e94055fd987d6e5580fd0f0e1cba3"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/events/TimelessServerEvents.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/events/TimelessServerEvents.java",
+      "sha256_at_split": "44c297903183c659f7359f046292bc41ab260d1c508edf49e3c43710cbb3f7bb"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/recipe/GunSmithTableResultComponents.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/recipe/GunSmithTableResultComponents.java",
+      "sha256_at_split": "17b1681dbfaae945d409967a2582626adbd6fadb2468da92424b4f35184f8ae0"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessGunSmithTableRecipeSchema.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessGunSmithTableRecipeSchema.java",
+      "sha256_at_split": "f7e7a3ebd5ff9e36a2eaf2acd8b99c6cc33252330e443bcca3075d2c0b38ae59"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessRecipeJS.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/recipe/TimelessRecipeJS.java",
+      "sha256_at_split": "0cf44a0cfed3f6850940392c7c83d03a2609732c5c5f3044ebf764f4f22f3438"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/AmmoNbtFactory.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/AmmoNbtFactory.java",
+      "sha256_at_split": "c74b6044ebab9693962566425df8225f46686d81024adf59561120f77028cdc7"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/AttachmentNbtFactory.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/AttachmentNbtFactory.java",
+      "sha256_at_split": "11fd7b7cdbcec0e95942bdab4b0da154b192217d877d647a298dda7fe2b42fca"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/GunNbtFactory.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/GunNbtFactory.java",
+      "sha256_at_split": "b6ad9eb9248023f834054b2b584319febaf1b43be66d268cf1665329af4e4e0e"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/GunSmithTableResultInfo.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/GunSmithTableResultInfo.java",
+      "sha256_at_split": "578b6a9e9ac890cad85b21ac97dd12afe4e4f4c4e1c110ad2e5360ff156ecabe"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemNbtFactory.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemNbtFactory.java",
+      "sha256_at_split": "627c73fb1a6956e00f2176640fd5531d5a4f14091916fcb3d83f82cbb0e48f7b"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemType.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemType.java",
+      "sha256_at_split": "ffe3339668f9959509747372fd6db0622077b62cf8d67854b57658ddbef4cf62"
+    },
+    {
+      "original_path": "src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemWrapper.java",
+      "preserved_path": "optional-integrations/kubejs/src/main/java/com/tacz/guns/compat/kubejs/util/TimelessItemWrapper.java",
+      "sha256_at_split": "94b004819efd084f062898f05b54d07bd93279a2fe46004cc308f32fde232498"
+    },
+    {
+      "original_path": "src/main/resources/kubejs.classfilter.txt",
+      "preserved_path": "optional-integrations/kubejs/src/main/resources/kubejs.classfilter.txt",
+      "sha256_at_split": "1431e46ada4a7ba851979ce36dfa367aa5fc858b36672888ea8783707eced11c"
+    },
+    {
+      "original_path": "src/main/resources/kubejs.plugins.txt",
+      "preserved_path": "optional-integrations/kubejs/src/main/resources/kubejs.plugins.txt",
+      "sha256_at_split": "cff64c5ba81cb4855b0bb05bdc2581d7dc25bbcdb42893e7cae7b4989bb8e7ee"
+    }
+  ]
+}

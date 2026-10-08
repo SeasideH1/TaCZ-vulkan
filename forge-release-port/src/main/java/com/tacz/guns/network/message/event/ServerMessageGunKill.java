@@ -1,0 +1,86 @@
+/*
+ * TaCZ-vulkan port: added or modified for Fabric / Minecraft 26.4 and native rendering.
+ * Modified version published by SeasideH1, 2026-10-09. See NOTICE.md at repository root.
+ * Existing upstream copyright and license notices remain applicable.
+ */
+package com.tacz.guns.network.message.event;
+
+import com.tacz.guns.api.event.common.EntityKillByGunEvent;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import com.tacz.guns.api.event.TaczEvents;
+import com.tacz.guns.api.event.LogicalSide;
+import com.tacz.guns.network.NetworkContext;
+
+import javax.annotation.Nullable;
+import java.util.function.Supplier;
+
+public class ServerMessageGunKill {
+    private final int bulletId;
+    private final int killEntityId;
+    private final int attackerId;
+    private final Identifier gunId;
+    private final Identifier gunDisplayId;
+    private final boolean isHeadShot;
+    private final float baseDamage;
+    private final float headshotMultiplier;
+
+    public ServerMessageGunKill(int bulletId, int killEntityId, int attackerId, Identifier gunId, Identifier gunDisplayId, float baseDamage, boolean isHeadShot, float headshotMultiplier) {
+        this.bulletId = bulletId;
+        this.killEntityId = killEntityId;
+        this.attackerId = attackerId;
+        this.gunId = gunId;
+        this.gunDisplayId = gunDisplayId;
+        this.baseDamage = baseDamage;
+        this.isHeadShot = isHeadShot;
+        this.headshotMultiplier = headshotMultiplier;
+    }
+
+    public static void encode(ServerMessageGunKill message, FriendlyByteBuf buf) {
+        buf.writeInt(message.bulletId);
+        buf.writeInt(message.killEntityId);
+        buf.writeInt(message.attackerId);
+        buf.writeIdentifier(message.gunId);
+        buf.writeIdentifier(message.gunDisplayId);
+        buf.writeFloat(message.baseDamage);
+        buf.writeBoolean(message.isHeadShot);
+        buf.writeFloat(message.headshotMultiplier);
+    }
+
+    public static ServerMessageGunKill decode(FriendlyByteBuf buf) {
+        int bulletId = buf.readInt();
+        int killEntityId = buf.readInt();
+        int attackerId = buf.readInt();
+        Identifier gunId = buf.readIdentifier();
+        Identifier gunDisplayId = buf.readIdentifier();
+        float baseDamage = buf.readFloat();
+        boolean isHeadShot = buf.readBoolean();
+        float headshotMultiplier = buf.readFloat();
+        return new ServerMessageGunKill(bulletId, killEntityId, attackerId, gunId, gunDisplayId, baseDamage, isHeadShot, headshotMultiplier);
+    }
+
+    public static void handle(ServerMessageGunKill message, Supplier<NetworkContext> contextSupplier) {
+        NetworkContext context = contextSupplier.get();
+        if (!context.isServer()) {
+            context.enqueueWork(() -> onKill(message));
+        }
+    }
+
+    @Environment(EnvType.CLIENT)
+    private static void onKill(ServerMessageGunKill message) {
+        ClientLevel level = Minecraft.getInstance().level;
+        if (level == null) {
+            return;
+        }
+        @Nullable Entity bullet = level.getEntity(message.bulletId);
+        @Nullable LivingEntity killedEntity = level.getEntity(message.killEntityId) instanceof LivingEntity livingEntity ? livingEntity : null;
+        @Nullable LivingEntity attacker = level.getEntity(message.attackerId) instanceof LivingEntity livingEntity ? livingEntity : null;
+        TaczEvents.BUS.post(new EntityKillByGunEvent(bullet, killedEntity, attacker, message.gunId, message.gunDisplayId, message.baseDamage, null, message.isHeadShot, message.headshotMultiplier, LogicalSide.CLIENT));
+    }
+}
